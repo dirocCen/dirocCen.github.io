@@ -1,0 +1,41 @@
+I"J<!-- 神经网络在材料设计上的应用 -->
+
+<h1 id="background">Background</h1>
+<p>At high temperature case, the contribution of configuration entropy to the formation energy of the alloy dominates, so the alloy usually appears disordered state. Obtaining a sufficiently disordered alloy structure usually requires a large supercell, which is disadvantageous for DFT where the computational cost grow O($n^3$) as the number of atoms increases. <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.65.353">Special Quasirandom Structures (SQS)</a> provides a systematic method to solve this problem, which can evaluate the quality of random structure according to the degree of conformity with the perfect SQS correlation function. Thus, a sufficiently random structure can also be found in a unit cell with a small number of atoms.</p>
+
+<!-- 高温情形下，构型熵对合金能量的贡献占主导，所以合金通常呈现无序的状态。而获得一个足够无序的合金结构通常需要一个大的超晶胞，但这对于随原子数的增加计算量呈O($n^3$)的增长的DFT来说是不利的。SQS提供了一个系统地解决该问题的方法，可以根据与完美的sqs关联函数的符合程度来评价一个随机结构的好坏，使得在原子数较少的晶胞中也能找到足够随机的结构。 -->
+
+<p>The currently commonly used technical methods are based on Monte Carlo simulated annealing, which obtain a structure closest to the SQS correlation function by sampling, such as <a href="https://www.brown.edu/Departments/Engineering/Labs/avdw/atat/">ATAT</a> and <a href="https://icet.materialsmodeling.org/">ICET</a>. However, in the case of multi-alloys or correlation functions considering multi-body terms, it is not easy to extract a structure containing enough “zeros” for correlation functions by this method. Once the struictures deviates too much from the perfect SQS, it is no longer reliable to use this structure for subsequent calculations of the remaining properties.</p>
+
+<!-- 目前常用的技术方法基于蒙特卡罗模拟退火，通过抽样的方式得到一个最接近sqs关联函数的结构，例如ATAT和ICET。然而在多元合金或者考虑足够多项的关联函数时，想要通过这一方法抽到一个包含足够多的“0”的关联函数的结构并不容易。而一旦该结构与完美的sqs偏离过大，使用该结构进行后续其余性质的计算也不再可靠。 -->
+
+<p>From this point, we consider a more general inverse problem, namely how to derive a structure from the correlation functions. It is worth mentioning that this problem is still an <a href="https://en.wikipedia.org/wiki/NP_(complexity)">NP problem</a> that has not been proved to be a P problem. One of our attempts is to construct a model of the correlation functions to structures by supervised learning.</p>
+
+<!-- 基于这一出发点，我们考虑的是一个更加通用的逆问题，即如何从一个关联函数得到一个结构。值得一提的是该问题目前还是一个尚未被证明为P的NP问题。我们的尝试之一是通过监督学习神经网络的方式构造一个关联函数到结构的模型。 -->
+
+<h1 id="main-works">Main works</h1>
+
+<h3 id="the-basic-crystallography-conception">The basic crystallography conception</h3>
+<p>A periodic crystal structure can be uniquely determined by lattice vector, coordinate position matrix and element symbol vector. For the on-site model of cluster expansion, the lattice vectors and coordinate positions are already determined when we select the supercell. So in fact we only need to determine the list of element symbol vector to uniquely determine the structure.</p>
+
+<!-- 一个周期性的晶体结构，可以被晶格矢量，坐标位置，元素符号三者唯一确定。对于on-site的集团展开模型来说，当我们选定超胞时晶格矢量和坐标位置就已经被确定了。所以实际上我们只需要确定元素符号的列表即可唯一地确定结构。 -->
+
+<h3 id="the-neural-network-model">The neural-network model</h3>
+<p>Refering to the construction of the <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.120.145301">CGCNN</a> and the <a href="https://arxiv.org/abs/2205.10046">GPUMD</a>, we pick up linear layer and relu activation function:</p>
+
+\[U_{i}=\sum_{\mu}\omega_{\mu}^{(1)}\cdot max \left( 0,\sum_{\nu}\omega_{\nu}^{(0)}q_{\nu}^{i}-b^{(0)} \right)-b^{(1)}\]
+
+<p>where $q_{v}$ is the correlation function vector of cluster expansion, $U_{i}$ is the element vector. The loss function we use mean squared error:
+\(MSE=\frac{1}{N}(U_{i}^2-Y_{i}^{2})\)
+where $Y_{i}$ is the target element vector. 
+In addition, we have to do a rounding operation on $U_{i}$ finally, because the real element vector is discrete. For binary alloys the operation is very simple:
+\(U_{i}=\left\{\begin{matrix}
+1 , U_{i}&gt;0\\ 
+-1, U_{i}&lt;0
+\end{matrix}\right.\)</p>
+
+<p>By the way, this is a clustering problem that sites only needs to be classified as +-1 in the end, which is seems suitable for unsupervised learning. But in fact, after analysis, it will be found that it is mediocre for the CE correlation function by unsupervised learning.</p>
+
+<!-- 这是一个聚类的问题最后只需要分类成+-1，表面上非常适合无监督学习。但实际上经过分析以后会发现对于CE关联函数来说是平庸的。 -->
+
+:ET
