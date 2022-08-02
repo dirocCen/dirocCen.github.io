@@ -6,8 +6,8 @@
 </description>
     <link>http://starry99.github.io/catbook/</link>
     <atom:link href="http://starry99.github.io/catbook/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 02 Aug 2022 15:06:07 +0800</pubDate>
-    <lastBuildDate>Tue, 02 Aug 2022 15:06:07 +0800</lastBuildDate>
+    <pubDate>Tue, 02 Aug 2022 15:13:01 +0800</pubDate>
+    <lastBuildDate>Tue, 02 Aug 2022 15:13:01 +0800</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -106,7 +106,7 @@ In addition, we have to do a rounding operation on $U_{i}$ finally, because the 
         <title>Curriculum Vitae by Yu-jie Cen</title>
         <description>&lt;h1 id=&quot;-yu-jie-cen--hehim---&quot;&gt;&lt;center&gt; Yu-Jie Cen &lt;font size=&quot;3&quot;&gt; (he/him) &lt;/font&gt;  &lt;/center&gt;&lt;/h1&gt;
 
-&lt;center&gt; E-mail: 202020129949@mail.scut.edu.cn | Tel:+086-15521284374 | &amp;lt;img src=&quot;/img/cv/github.png&quot; width=2.5%&amp;gt; https://diroccen.github.io &lt;/center&gt;
+&lt;center&gt; E-mail: 202020129949@mail.scut.edu.cn | Tel:+086-15521284374 | &amp;lt;img src=&quot;https://github.com/dirocCen/dirocCen.github.io/raw/gh-pages/assets/img/cv/github.png&quot; width=2.5%&amp;gt; https://diroccen.github.io &lt;/center&gt;
 
 &lt;!-- &lt;center&gt; E-mail: 202020129949@mail.scut.edu.cn | Tel:+086-15521284374 | ![](../assets/img/cv/github.png) https://diroccen.github.io &lt;/center&gt; --&gt;
 
