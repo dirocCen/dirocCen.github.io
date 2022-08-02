@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+  <title>A method for rapid screening of ground-state candidate structures is proposed to accelerate high-throughput density function theory (DFT) calculations. | Cenyj</title>
+  
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Cenyj">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/assets/css/main.css" media="all">
+  <link rel="canonical" href="http://starry99.github.io/catbook/2022-03/a1">
+  <link rel="alternate" type="application/rss+xml" title="Cenyj"
+    href="/feed.xml" />
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon" />
+  <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon" />
+
+  <!-- font -->
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,400i" rel="stylesheet">
+</head>
+
+<body>
+  <div class="content">
+
+    <header class="header">
+
+  <div class="header_content">
+    <label class="theme_changer">
+      <input theme_toggle type="checkbox">
+      <div class="button"></div>
+    </label>
+    <a class="header_circle" href="/">
+      <img src="/assets/img/Alan.png" alt="catbook">
+    </a>
+    <span class="header_name">Cenyj</span>
+    <span class="header_job">a category-centric theme</span>
+    <span class="header_mes"></span>
+
+    <nav class="nav">
+      
+      
+      
+      <ul class="nav_list">
+        <li class="nav_item">
+          <a href="/categories/cv" id="aa">cv
+            (1)</a>
+        </li>
+      </ul>
+      
+      
+      <ul class="nav_list">
+        <li class="nav_item">
+          <a href="/categories/research" id="aa">research
+            (2)</a>
+        </li>
+      </ul>
+      
+    </nav>
+  </div>
+
+</header>
+
+
+
+    <nav class="mobile_menu">
+
+  <ul class="nav_list">
+    
+    
+    
+
+    <li class="nav_item">
+      <a href="/categories/cv" id="aa">cv (1)</a>
+    </li>
+    
+    
+
+    <li class="nav_item">
+      <a href="/categories/research" id="aa">research (2)</a>
+    </li>
+    
+  </ul>
+
+</nav>
+    
+    <main class="main">
+
+    <div class="post">
+  <div>
+    
+    <p class="post_title">A method for rapid screening of ground-state candidate structures is proposed to accelerate high-throughput density function theory (DFT) calculations.</p>
+    
+  </div>
+  <div class="post_data">
+    
+    <span class="post_date">Mar 22, 2022</span>
+    
+    
+    <span class="post_categories">
+      &raquo; 
+      <a href="/categories/research">research</a>
+    </span>
+    
+  </div>
+  <div class="post_content">
+    <h1 id="background">Background</h1>
+
+<p>With the improvement of computing power and the development of <a href="https://en.wikipedia.org/wiki/Density_functional_theory">DFT</a> software, there is a trend to find new materials through high-throughput calculation. A key question for high-throughput conputing is what kind of structural prototype to choose for the calculation. The usual practice is to select the existing structural prototypes in the experimental or calculation database (ICSD/Materials Project/Aflow) accroding to the material lattice type or coordination number and other information. These structural prototypes are then used as target element replacements for the calculation. In our work on symmetry-based structure classification strategies, we aim to generate new possible ground-state candidate structures that can be uesd as structural prototypes for high-throughput calculations of materials.</p>
+
+<!-- 随着算力的进步和DFT方法的成熟，通过高通量计算去寻找新材料成为一种趋势。对于高通量计算来说一个关键的问题是选取什么样的结构原型来进行计算。通常的做法是根据材料晶格类型或者配位数等信息，选取实验或者计算数据库中已有的结构原型。最后对这些结构原型作元素替换进行计算。在我们的基于对称性的结构分类策略的工作中，我们的目的是产生新的可能的基态候选结构，可作为材料高通量计算的结构原型。 -->
+
+<h1 id="main-works">Main works</h1>
+<p>Our methods mainly based on the Atomic Classification Model (ACM) and the vertex analysis of the correlation function. And the core work is to design a convex hull algorithm, which differs from the general <a href="http://www.qhull.org/">triangulation methods</a> in that the vertexes can be solved step by step and the preceding vertexes are not covered by subsequent vertexes. This is a benefit derived from the symmetric classification of data points.</p>
+
+<!-- 我们的方法主要是基于原子分类模型和关联函数的凸点分析。核心的工作是设计了一个凸点结构的算法，不同于一般的凸包络的计算，在该算法中可以逐级求解凸点，可以使前面的凸点不被后续的凸点覆盖。根据模型中定义的指标$l$，我们可以将结构进行分类。 -->
+<p>Here is the flowchart of the whole algorithm:
+<img src="../assets//img/post_a1/article/f2.png" alt="first-principle" /></p>
+
+<p>A further inference is when we expand the cutoff radii to infinity in the ACM, the key indicator $l$ in the model can naturally become the number of Wyckoffs positions ($N_{W}$). Then we found that even without the convex hull calculation, we can greatly reduce the calculation cost and find effective prototype just classifying the structures by $N_{W}$.</p>
+
+<!-- 更进一步的推论是，在原子分类模型中，当我们把相互作用的截断半径扩大到无穷，模型中的关键指标$l$就可以自然地变为Wyckoffs site 的数目（$N_{W}$）。然后我们发现，即使是不通过上述的模型和凸点计算，仅仅将结构按这一指标进行分类，也可以大大减少候选结构的数量，找到有效的原型结构。 -->
+
+<p>Figure (a) is the result of classifying the ground state structures of 100 binary alloys in the <a href="https://aflowlib.org/aflow-chull">AFLOW database</a> according to $N_{W}$. It can be found that under the premise of the same amount of calculation, its effect is much better than according to the other two indicators (b) (c), namely the number of structural atoms in the cell and the number of symmetrical operands of the structure.</p>
+
+<!-- 图（a）是我们将AFLOW数据库中的100个二元合金的基态结构，按照$N_{W}$进行分类的结果。可以发现在相同的计算量前提下，他的效果要远好于按照另外两个指标（b)(c)，即结构原子数和结构的对称操作数。 -->
+
+<p><img src="../assets//img/post_a1/article/reply.png" alt="first-principle" /></p>
+
+<p><a href="https://journals.aps.org/prmaterials/abstract/10.1103/PhysRevMaterials.6.L050801">The complete content can refer to the published paper</a></p>
+
+
+  </div>
+
+
+  
+  <div class="post_comment">
+
+    
+
+    
+
+
+  </div>
+  
+
+</div>
+
+
+    </main>
+
+  </div>
+
+  <footer class="footer">
+  <div>
+    &copy; 2022 Cenyj.
+    Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>.
+    Get this theme
+    <a href="https://github.com/starry99/catbook" target="_blank">here</a>.
+  </div>
+</footer>
+
+  <!-- js from https://codepen.io/MrGrigri/pen/XQmWBv -->
+
+<script>
+// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+    const themePreference = () => {
+        const hasLocalStorage = localStorage.getItem('theme');
+        let supports = false;
+        let theme = undefined;
+
+        if (hasLocalStorage === 'light') {
+            theme = 'light';
+        }
+        if (hasLocalStorage === 'dark') {
+            theme = 'dark';
+        }
+
+        if (window.matchMedia(`(prefers_color: dark)`).matches) {
+            theme = hasLocalStorage ? hasLocalStorage : 'dark';
+            supports = true;
+        };
+        if (window.matchMedia(`(prefers_color: light)`).matches) {
+            theme = hasLocalStorage ? hasLocalStorage : 'light';
+            supports = true;
+        };
+        if (window.matchMedia(`(prefers_color: no-preference)`).matches) {
+            theme = hasLocalStorage ? hasLocalStorage : 'none';
+            supports = true;
+        };
+
+        return {
+            supports,
+            theme
+        };
+    }
+
+    document.addEventListener('DOMContentLoaded', e => {
+        console.clear();
+
+        const userThemePreference = themePreference();
+        const toggle = document.querySelector('[theme_toggle]');
+        const html = document.documentElement;
+
+        const setTheme = () => {
+            switch (userThemePreference.theme) {
+                case 'dark':
+                    toggle.checked = true;
+                    html.classList.add('dark');
+                    html.classList.remove('light');
+                    break;
+                case 'light':
+                    toggle.checked = false;
+                    html.classList.remove('dark');
+                    html.classList.add('light');
+                    break;
+            }
+        }
+        setTheme();
+        toggle.addEventListener('click', e => {
+            if (toggle.checked) {
+                html.classList.add('dark');
+                html.classList.remove('light');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            }
+        }, false);
+    }, false);
+// @license-end
+</script>
+
+</body>
+</html>

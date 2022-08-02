@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cenyj</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</description>
+    <link>http://starry99.github.io/catbook/</link>
+    <atom:link href="http://starry99.github.io/catbook/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Tue, 02 Aug 2022 13:02:51 +0800</pubDate>
+    <lastBuildDate>Tue, 02 Aug 2022 13:02:51 +0800</lastBuildDate>
+    <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>Improving search efficiency of special quasirandom structures (SQS) in high-entropy alloys using supervised learning.</title>
+        <description>&lt;!-- 神经网络在材料设计上的应用 --&gt;
+
+&lt;h1 id=&quot;background&quot;&gt;Background&lt;/h1&gt;
+&lt;p&gt;At high temperature case, the contribution of configuration entropy to the formation energy of the alloy dominates, so the alloy usually appears disordered state. Obtaining a sufficiently disordered alloy structure usually requires a large supercell, which is disadvantageous for DFT where the computational cost grow O($n^3$) as the number of atoms increases. &lt;a href=&quot;https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.65.353&quot;&gt;Special Quasirandom Structures (SQS)&lt;/a&gt; provides a systematic method to solve this problem, which can evaluate the quality of random structure according to the degree of conformity with the perfect SQS correlation function. Thus, a sufficiently random structure can also be found in a unit cell with a small number of atoms.&lt;/p&gt;
+
+&lt;!-- 高温情形下，构型熵对合金能量的贡献占主导，所以合金通常呈现无序的状态。而获得一个足够无序的合金结构通常需要一个大的超晶胞，但这对于随原子数的增加计算量呈O($n^3$)的增长的DFT来说是不利的。SQS提供了一个系统地解决该问题的方法，可以根据与完美的sqs关联函数的符合程度来评价一个随机结构的好坏，使得在原子数较少的晶胞中也能找到足够随机的结构。 --&gt;
+
+&lt;p&gt;The currently commonly used technical methods are based on Monte Carlo simulated annealing, which obtain a structure closest to the SQS correlation function by sampling, such as &lt;a href=&quot;https://www.brown.edu/Departments/Engineering/Labs/avdw/atat/&quot;&gt;ATAT&lt;/a&gt; and &lt;a href=&quot;https://icet.materialsmodeling.org/&quot;&gt;ICET&lt;/a&gt;. However, in the case of multi-alloys or correlation functions considering multi-body terms, it is not easy to extract a structure containing enough “zeros” for correlation functions by this method. Once the struictures deviates too much from the perfect SQS, it is no longer reliable to use this structure for subsequent calculations of the remaining properties.&lt;/p&gt;
+
+&lt;!-- 目前常用的技术方法基于蒙特卡罗模拟退火，通过抽样的方式得到一个最接近sqs关联函数的结构，例如ATAT和ICET。然而在多元合金或者考虑足够多项的关联函数时，想要通过这一方法抽到一个包含足够多的“0”的关联函数的结构并不容易。而一旦该结构与完美的sqs偏离过大，使用该结构进行后续其余性质的计算也不再可靠。 --&gt;
+
+&lt;p&gt;From this point, we consider a more general inverse problem, namely how to derive a structure from the correlation functions. It is worth mentioning that this problem is still an &lt;a href=&quot;https://en.wikipedia.org/wiki/NP_(complexity)&quot;&gt;NP problem&lt;/a&gt; that has not been proved to be a P problem. One of our attempts is to construct a model of the correlation functions to structures by supervised learning.&lt;/p&gt;
+
+&lt;!-- 基于这一出发点，我们考虑的是一个更加通用的逆问题，即如何从一个关联函数得到一个结构。值得一提的是该问题目前还是一个尚未被证明为P的NP问题。我们的尝试之一是通过监督学习神经网络的方式构造一个关联函数到结构的模型。 --&gt;
+
+&lt;h1 id=&quot;main-works&quot;&gt;Main works&lt;/h1&gt;
+
+&lt;h3 id=&quot;the-basic-crystallography-conception&quot;&gt;The basic crystallography conception&lt;/h3&gt;
+&lt;p&gt;A periodic crystal structure can be uniquely determined by lattice vector, coordinate position matrix and element symbol vector. For the on-site model of cluster expansion, the lattice vectors and coordinate positions are already determined when we select the supercell. So in fact we only need to determine the list of element symbol vector to uniquely determine the structure.&lt;/p&gt;
+
+&lt;!-- 一个周期性的晶体结构，可以被晶格矢量，坐标位置，元素符号三者唯一确定。对于on-site的集团展开模型来说，当我们选定超胞时晶格矢量和坐标位置就已经被确定了。所以实际上我们只需要确定元素符号的列表即可唯一地确定结构。 --&gt;
+
+&lt;h3 id=&quot;the-neural-network-model&quot;&gt;The neural-network model&lt;/h3&gt;
+&lt;p&gt;Refering to the construction of the &lt;a href=&quot;https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.120.145301&quot;&gt;CGCNN&lt;/a&gt; and the &lt;a href=&quot;https://arxiv.org/abs/2205.10046&quot;&gt;GPUMD&lt;/a&gt;, we pick up linear layer and relu activation function:&lt;/p&gt;
+
+\[U_{i}=\sum_{\mu}\omega_{\mu}^{(1)}\cdot max \left( 0,\sum_{\nu}\omega_{\nu}^{(0)}q_{\nu}^{i}-b^{(0)} \right)-b^{(1)}\]
+
+&lt;p&gt;where $q_{v}$ is the correlation function vector of cluster expansion, $U_{i}$ is the element vector. The loss function we use mean squared error:
+\(MSE=\frac{1}{N}(U_{i}^2-Y_{i}^{2})\)
+where $Y_{i}$ is the target element vector. 
+In addition, we have to do a rounding operation on $U_{i}$ finally, because the real element vector is discrete. For binary alloys the operation is very simple:
+\(U_{i}=\left\{\begin{matrix}
+1 , U_{i}&amp;gt;0\\ 
+-1, U_{i}&amp;lt;0
+\end{matrix}\right.\)&lt;/p&gt;
+
+&lt;p&gt;By the way, this is a clustering problem that sites only needs to be classified as +-1 in the end, which is seems suitable for unsupervised learning. But in fact, after analysis, it will be found that it is mediocre for the CE correlation function by unsupervised learning.&lt;/p&gt;
+
+&lt;!-- 这是一个聚类的问题最后只需要分类成+-1，表面上非常适合无监督学习。但实际上经过分析以后会发现对于CE关联函数来说是平庸的。 --&gt;
+
+</description>
+        <pubDate>Wed, 22 Jun 2022 00:00:00 +0800</pubDate>
+        <link>http://starry99.github.io/catbook/2022-06/a2</link>
+        <guid isPermaLink="true">http://starry99.github.io/catbook/2022-06/a2</guid>
+        
+        
+        <category>research</category>
+        
+      </item>
+    
+      <item>
+        <title>A method for rapid screening of ground-state candidate structures is proposed to accelerate high-throughput density function theory (DFT) calculations.</title>
+        <description>&lt;h1 id=&quot;background&quot;&gt;Background&lt;/h1&gt;
+
+&lt;p&gt;With the improvement of computing power and the development of &lt;a href=&quot;https://en.wikipedia.org/wiki/Density_functional_theory&quot;&gt;DFT&lt;/a&gt; software, there is a trend to find new materials through high-throughput calculation. A key question for high-throughput conputing is what kind of structural prototype to choose for the calculation. The usual practice is to select the existing structural prototypes in the experimental or calculation database (ICSD/Materials Project/Aflow) accroding to the material lattice type or coordination number and other information. These structural prototypes are then used as target element replacements for the calculation. In our work on symmetry-based structure classification strategies, we aim to generate new possible ground-state candidate structures that can be uesd as structural prototypes for high-throughput calculations of materials.&lt;/p&gt;
+
+&lt;!-- 随着算力的进步和DFT方法的成熟，通过高通量计算去寻找新材料成为一种趋势。对于高通量计算来说一个关键的问题是选取什么样的结构原型来进行计算。通常的做法是根据材料晶格类型或者配位数等信息，选取实验或者计算数据库中已有的结构原型。最后对这些结构原型作元素替换进行计算。在我们的基于对称性的结构分类策略的工作中，我们的目的是产生新的可能的基态候选结构，可作为材料高通量计算的结构原型。 --&gt;
+
+&lt;h1 id=&quot;main-works&quot;&gt;Main works&lt;/h1&gt;
+&lt;p&gt;Our methods mainly based on the Atomic Classification Model (ACM) and the vertex analysis of the correlation function. And the core work is to design a convex hull algorithm, which differs from the general &lt;a href=&quot;http://www.qhull.org/&quot;&gt;triangulation methods&lt;/a&gt; in that the vertexes can be solved step by step and the preceding vertexes are not covered by subsequent vertexes. This is a benefit derived from the symmetric classification of data points.&lt;/p&gt;
+
+&lt;!-- 我们的方法主要是基于原子分类模型和关联函数的凸点分析。核心的工作是设计了一个凸点结构的算法，不同于一般的凸包络的计算，在该算法中可以逐级求解凸点，可以使前面的凸点不被后续的凸点覆盖。根据模型中定义的指标$l$，我们可以将结构进行分类。 --&gt;
+&lt;p&gt;Here is the flowchart of the whole algorithm:
+&lt;img src=&quot;../assets//img/post_a1/article/f2.png&quot; alt=&quot;first-principle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A further inference is when we expand the cutoff radii to infinity in the ACM, the key indicator $l$ in the model can naturally become the number of Wyckoffs positions ($N_{W}$). Then we found that even without the convex hull calculation, we can greatly reduce the calculation cost and find effective prototype just classifying the structures by $N_{W}$.&lt;/p&gt;
+
+&lt;!-- 更进一步的推论是，在原子分类模型中，当我们把相互作用的截断半径扩大到无穷，模型中的关键指标$l$就可以自然地变为Wyckoffs site 的数目（$N_{W}$）。然后我们发现，即使是不通过上述的模型和凸点计算，仅仅将结构按这一指标进行分类，也可以大大减少候选结构的数量，找到有效的原型结构。 --&gt;
+
+&lt;p&gt;Figure (a) is the result of classifying the ground state structures of 100 binary alloys in the &lt;a href=&quot;https://aflowlib.org/aflow-chull&quot;&gt;AFLOW database&lt;/a&gt; according to $N_{W}$. It can be found that under the premise of the same amount of calculation, its effect is much better than according to the other two indicators (b) (c), namely the number of structural atoms in the cell and the number of symmetrical operands of the structure.&lt;/p&gt;
+
+&lt;!-- 图（a）是我们将AFLOW数据库中的100个二元合金的基态结构，按照$N_{W}$进行分类的结果。可以发现在相同的计算量前提下，他的效果要远好于按照另外两个指标（b)(c)，即结构原子数和结构的对称操作数。 --&gt;
+
+&lt;p&gt;&lt;img src=&quot;../assets//img/post_a1/article/reply.png&quot; alt=&quot;first-principle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://journals.aps.org/prmaterials/abstract/10.1103/PhysRevMaterials.6.L050801&quot;&gt;The complete content can refer to the published paper&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 22 Mar 2022 00:00:00 +0800</pubDate>
+        <link>http://starry99.github.io/catbook/2022-03/a1</link>
+        <guid isPermaLink="true">http://starry99.github.io/catbook/2022-03/a1</guid>
+        
+        
+        <category>research</category>
+        
+      </item>
+    
+      <item>
+        <title>Curriculum Vitae by Yu-jie Cen</title>
+        <description>&lt;h1 id=&quot;-yu-jie-cen--hehim---&quot;&gt;&lt;center&gt; Yu-Jie Cen &lt;font size=&quot;3&quot;&gt; (he/him) &lt;/font&gt;  &lt;/center&gt;&lt;/h1&gt;
+&lt;center&gt; E-mail: 202020129949@mail.scut.edu.cn | Tel:+086-15521284374 | &lt;a herf=&quot;https://diroccen.github.io&quot;&gt;&amp;lt;img src=&quot;../assets/img/cv/github.png&quot; width=2.5%&amp;gt;&lt;/a&gt; https://diroccen.github.io &lt;/center&gt;
+
+&lt;!-- {:heitht=&quot;10&quot; width=&quot;10&quot;} --&gt;
+&lt;p&gt;&lt;!-- &lt;center&gt; 202020129949@mail.scut.edu.cn | +086-15521284374 | https://diroccen.github.io &lt;/center&gt;  --&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;education&quot;&gt;EDUCATION&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;School of Physics and Optoelectronics, South China University Of Technelogy&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;M.S. | Degree in Theoretical Physics (2020.9-2023.6)&lt;/p&gt;
+
+&lt;p&gt;B.S. | Degree in Applied Physics (2016.9-2020.6)&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;research&quot;&gt;RESEARCH&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Mentored by &lt;a href=&quot;https://www.researchgate.net/profile/Xiao-Bao-Yang&quot;&gt;Xiao-Bao, Yang&lt;/a&gt; and &lt;a href=&quot;https://scholar.google.com.hk/citations?hl=zh-CN&amp;amp;user=aPnXvUcAAAAJ&quot;&gt;Yu-Jun, Zhao&lt;/a&gt; in the &lt;a href=&quot;http://www.compphys.cn/&quot;&gt;Computational Condensed Matter Physics Group&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;A method for rapid screening of ground-state candidate structures is proposed to accelerate high-throughput &lt;a href=&quot;https://en.wikipedia.org/wiki/Density_functional_theory&quot;&gt;density function theory&lt;/a&gt; (DFT) calculations. &lt;em&gt;First-author&lt;/em&gt; manuscript accepted at &lt;a href=&quot;https://journals.aps.org/prmaterials/abstract/10.1103/PhysRevMaterials.6.L050801&quot;&gt;Physcial Review Materials&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Improving search efficiency of special quasirandom structures (SQS) in high-entropy alloys using supervised learning.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- 棚平面上的结构搜索 --&gt;
+
+&lt;!-- - Searching special quasirandom structures (SQS) base on unsupervised learning --&gt;
+
+&lt;!-- *** --&gt;
+&lt;!-- ## RESEARCH INTERESTS --&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;skills&quot;&gt;SKILLS&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Experienced in Python and Matlab. Working knowledge of Linux systems/tools.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Scientific computing and machine learning (ML) expertise for physical science problems. Experienced in parallel computation.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;First-principles calculations experience (VASP).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Latex and Markdown.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;fellowships-and-awards&quot;&gt;FELLOWSHIPS AND AWARDS&lt;/h2&gt;
+&lt;p&gt;Outstanding Graduate student (2020)&lt;/p&gt;
+
+&lt;p&gt;School scholarship (2017-2019)&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;teaching-experience&quot;&gt;TEACHING EXPERIENCE&lt;/h2&gt;
+&lt;p&gt;Teaching assistant of General physics (2021.9-2022.1)&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;other-experience&quot;&gt;Other EXPERIENCE&lt;/h2&gt;
+&lt;p&gt;Administrator of the server(computing) in CCMPG (2021-2022)&lt;/p&gt;
+
+&lt;p&gt;Contemporary Undergraduate Mathematical Contest in Modeling (2018)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pt.nankai.edu.cn/cupt/list.htm&quot;&gt;China Undergraduate Physics Tournament&lt;/a&gt; (2017-2018)&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 21 Mar 2022 00:00:00 +0800</pubDate>
+        <link>http://starry99.github.io/catbook/2022-03/cv</link>
+        <guid isPermaLink="true">http://starry99.github.io/catbook/2022-03/cv</guid>
+        
+        
+        <category>cv</category>
+        
+      </item>
+    
+  </channel>
+</rss>
