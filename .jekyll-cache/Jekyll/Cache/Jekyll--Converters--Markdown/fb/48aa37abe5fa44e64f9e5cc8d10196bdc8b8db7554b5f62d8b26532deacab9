@@ -1,5 +1,17 @@
-I"<h1 id="-yu-jie-cen--hehim---"><center> Yu-Jie Cen <font size="3"> (he/him) </font>  </center></h1>
-<center> E-mail: 202020129949@mail.scut.edu.cn | Tel:+086-15521284374 | <a herf="https://diroccen.github.io">&lt;img src="../assets/img/cv/github.png" width=2.5%&gt;</a> https://diroccen.github.io </center>
+I"A<h1 id="-yu-jie-cen--hehim---"><center> Yu-Jie Cen <font size="3"> (he/him) </font>  </center></h1>
+
+<center> E-mail: 202020129949@mail.scut.edu.cn | Tel:+086-15521284374 | &lt;img src="/img/cv/github.png" width=2.5%&gt; https://diroccen.github.io </center>
+
+<!-- <center> E-mail: 202020129949@mail.scut.edu.cn | Tel:+086-15521284374 | ![](../assets/img/cv/github.png) https://diroccen.github.io </center> -->
+
+<!-- <img src="https://github.com/dirocCen/dirocCen.github.io/raw/gh-pages/_site/assets/img/cv/github.png" width=2.5%> -->
+<!-- <div  align="center">    
+E-mail: 202020129949@mail.scut.edu.cn | Tel:+086-15521284374 | <img src="../assets/img/cv/github.png" width=2.5%> https://diroccen.github.io
+</div> -->
+
+<!-- <div  align="center">    
+E-mail: 202020129949@mail.scut.edu.cn | Tel:+086-15521284374 | ![](../assets/img/cv/github.png) https://diroccen.github.io
+</div> -->
 
 <!-- {:heitht="10" width="10"} -->
 <p><!-- <center> 202020129949@mail.scut.edu.cn | +086-15521284374 | https://diroccen.github.io </center>  --></p>

@@ -29,6 +29,9 @@
 
     <header class="header">
 
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+    <script type="text/javascript" async src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
   <div class="header_content">
     <label class="theme_changer">
       <input theme_toggle type="checkbox">
@@ -135,14 +138,17 @@
 
 \[U_{i}=\sum_{\mu}\omega_{\mu}^{(1)}\cdot max \left( 0,\sum_{\nu}\omega_{\nu}^{(0)}q_{\nu}^{i}-b^{(0)} \right)-b^{(1)}\]
 
-<p>where $q_{v}$ is the correlation function vector of cluster expansion, $U_{i}$ is the element vector. The loss function we use mean squared error:
-\(MSE=\frac{1}{N}(U_{i}^2-Y_{i}^{2})\)
-where $Y_{i}$ is the target element vector. 
-In addition, we have to do a rounding operation on $U_{i}$ finally, because the real element vector is discrete. For binary alloys the operation is very simple:
-\(U_{i}=\left\{\begin{matrix}
+<p>where $q_{v}$ is the correlation function vector of cluster expansion, $U_{i}$ is the element vector. The loss function we use mean squared error:</p>
+
+\[MSE=\frac{1}{N}(U_{i}^2-Y_{i}^{2})\]
+
+<p>where $Y_{i}$ is the target element vector. 
+In addition, we have to do a rounding operation on $U_{i}$ finally, because the real element vector is discrete. For binary alloys the operation is very simple:</p>
+
+\[U_{i}=\left\{\begin{matrix}
 1 , U_{i}&gt;0\\ 
 -1, U_{i}&lt;0
-\end{matrix}\right.\)</p>
+\end{matrix}\right.\]
 
 <p>By the way, this is a clustering problem that sites only needs to be classified as +-1 in the end, which is seems suitable for unsupervised learning. But in fact, after analysis, it will be found that it is mediocre for the CE correlation function by unsupervised learning.</p>
 

@@ -6,8 +6,8 @@
 </description>
     <link>http://starry99.github.io/catbook/</link>
     <atom:link href="http://starry99.github.io/catbook/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 02 Aug 2022 13:02:51 +0800</pubDate>
-    <lastBuildDate>Tue, 02 Aug 2022 13:02:51 +0800</lastBuildDate>
+    <pubDate>Tue, 02 Aug 2022 15:06:07 +0800</pubDate>
+    <lastBuildDate>Tue, 02 Aug 2022 15:06:07 +0800</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
@@ -39,14 +39,17 @@
 
 \[U_{i}=\sum_{\mu}\omega_{\mu}^{(1)}\cdot max \left( 0,\sum_{\nu}\omega_{\nu}^{(0)}q_{\nu}^{i}-b^{(0)} \right)-b^{(1)}\]
 
-&lt;p&gt;where $q_{v}$ is the correlation function vector of cluster expansion, $U_{i}$ is the element vector. The loss function we use mean squared error:
-\(MSE=\frac{1}{N}(U_{i}^2-Y_{i}^{2})\)
-where $Y_{i}$ is the target element vector. 
-In addition, we have to do a rounding operation on $U_{i}$ finally, because the real element vector is discrete. For binary alloys the operation is very simple:
-\(U_{i}=\left\{\begin{matrix}
+&lt;p&gt;where $q_{v}$ is the correlation function vector of cluster expansion, $U_{i}$ is the element vector. The loss function we use mean squared error:&lt;/p&gt;
+
+\[MSE=\frac{1}{N}(U_{i}^2-Y_{i}^{2})\]
+
+&lt;p&gt;where $Y_{i}$ is the target element vector. 
+In addition, we have to do a rounding operation on $U_{i}$ finally, because the real element vector is discrete. For binary alloys the operation is very simple:&lt;/p&gt;
+
+\[U_{i}=\left\{\begin{matrix}
 1 , U_{i}&amp;gt;0\\ 
 -1, U_{i}&amp;lt;0
-\end{matrix}\right.\)&lt;/p&gt;
+\end{matrix}\right.\]
 
 &lt;p&gt;By the way, this is a clustering problem that sites only needs to be classified as +-1 in the end, which is seems suitable for unsupervised learning. But in fact, after analysis, it will be found that it is mediocre for the CE correlation function by unsupervised learning.&lt;/p&gt;
 
@@ -102,7 +105,19 @@ In addition, we have to do a rounding operation on $U_{i}$ finally, because the 
       <item>
         <title>Curriculum Vitae by Yu-jie Cen</title>
         <description>&lt;h1 id=&quot;-yu-jie-cen--hehim---&quot;&gt;&lt;center&gt; Yu-Jie Cen &lt;font size=&quot;3&quot;&gt; (he/him) &lt;/font&gt;  &lt;/center&gt;&lt;/h1&gt;
-&lt;center&gt; E-mail: 202020129949@mail.scut.edu.cn | Tel:+086-15521284374 | &lt;a herf=&quot;https://diroccen.github.io&quot;&gt;&amp;lt;img src=&quot;../assets/img/cv/github.png&quot; width=2.5%&amp;gt;&lt;/a&gt; https://diroccen.github.io &lt;/center&gt;
+
+&lt;center&gt; E-mail: 202020129949@mail.scut.edu.cn | Tel:+086-15521284374 | &amp;lt;img src=&quot;/img/cv/github.png&quot; width=2.5%&amp;gt; https://diroccen.github.io &lt;/center&gt;
+
+&lt;!-- &lt;center&gt; E-mail: 202020129949@mail.scut.edu.cn | Tel:+086-15521284374 | ![](../assets/img/cv/github.png) https://diroccen.github.io &lt;/center&gt; --&gt;
+
+&lt;!-- &lt;img src=&quot;https://github.com/dirocCen/dirocCen.github.io/raw/gh-pages/_site/assets/img/cv/github.png&quot; width=2.5%&gt; --&gt;
+&lt;!-- &lt;div  align=&quot;center&quot;&gt;    
+E-mail: 202020129949@mail.scut.edu.cn | Tel:+086-15521284374 | &lt;img src=&quot;../assets/img/cv/github.png&quot; width=2.5%&gt; https://diroccen.github.io
+&lt;/div&gt; --&gt;
+
+&lt;!-- &lt;div  align=&quot;center&quot;&gt;    
+E-mail: 202020129949@mail.scut.edu.cn | Tel:+086-15521284374 | ![](../assets/img/cv/github.png) https://diroccen.github.io
+&lt;/div&gt; --&gt;
 
 &lt;!-- {:heitht=&quot;10&quot; width=&quot;10&quot;} --&gt;
 &lt;p&gt;&lt;!-- &lt;center&gt; 202020129949@mail.scut.edu.cn | +086-15521284374 | https://diroccen.github.io &lt;/center&gt;  --&gt;&lt;/p&gt;
