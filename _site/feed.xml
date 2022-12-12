@@ -6,9 +6,59 @@
 </description>
     <link>http://starry99.github.io/catbook/</link>
     <atom:link href="http://starry99.github.io/catbook/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 02 Aug 2022 16:08:14 +0800</pubDate>
-    <lastBuildDate>Tue, 02 Aug 2022 16:08:14 +0800</lastBuildDate>
+    <pubDate>Mon, 12 Dec 2022 15:03:40 +0800</pubDate>
+    <lastBuildDate>Mon, 12 Dec 2022 15:03:40 +0800</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>Direct generation of structures with low Wyckoffs Position</title>
+        <description>&lt;h1 id=&quot;background&quot;&gt;Background&lt;/h1&gt;
+
+&lt;p&gt;According to our previous work, we know that the structures with low Wyckoffs Position are very likely to be the stable ground state structures of the material at zero temperature. If we fix a lattice (such as fcc, bcc) and generate all structures with low Wyckoffs Position in advance (maybe only have less than 4 or 6 unequivalent atoms), we can use them as templates for high-throughput calculations, which can greatly reduce the calculation cost, especially for multicomponent alloys.
+&lt;!-- 根据我们之前的工作，我们知道低维克夫位点的结构非常有可能是材料零温下稳定的基态结构。如果固定一个格子（例如fcc,bcc）我们能提前生成所有的具有低维克夫位点的结构（也许是只具有4/6个以下的不等价原子），以此作为高通量计算的模板，可以大大地节约计算的成本，尤其是对于多元合金来说。 --&gt;&lt;/p&gt;
+
+&lt;!-- 基于一些研究组的努力，通过扩胞，替换原子，根据对称性检查重复等操作，目前可以做到遍历生成所有对称不等价的结构。但随着原子数的增加和元素种类的增加，不等价的结构数目会急剧地增大，如下图： --&gt;
+&lt;p&gt;Through operations such as expanding supercell, replacing atoms, and checking repetitions according to symmetry, it is currently possible to enumerate and generate all non-equivalent derivative structures. However, as the supercell atoms number increases and the types of elements increase, the number of derivative structures will increase sharply, as shown in the figure below:
+&lt;img src=&quot;../assets//img/post_a3/Number%20of%20derivative%20structures.png&quot; alt=&quot;first-principle&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It is obviously select the structures with low Wyckoffs position in such a large number of candidate structures is extremely inefficient. Therefore, we developed a method based on the symmetric operator subgroup decomposition, which can directly generate the structures with low Wyckoffs position without enumerate all structures.
+&lt;!-- 在这样庞大的候选结构中选取低维克夫位点的结构显然是效率极低的。于是我们发展了一种基于对称操作表子群的方式，可以直接生成低低维克夫位点结构的方法。 --&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;main-works&quot;&gt;Main works&lt;/h1&gt;
+&lt;p&gt;The algorithm flow is as follows:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Expanding the cell, and calculate the symmetry operation table (permutation group) under the pure phase of this supercell, which is the largest symmetry operation permutation group under this supercell.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Computing all nonconjugate subgroups of the permutation group.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Classifying the atoms according to these non-conjugated subgroups.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Carry out atomic replacement according to the result of subgroup classification to generate structures.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- 具体的步骤如下：
+1. 扩胞，并计算该超胞的纯相下的对称操作表（置换群）,这是该超胞下最大的对称操作置换群。
+
+2. 计算该置换群的所有非共轭子群。
+
+3. 根据这些非共轭的子群对原子进行分类。
+
+4. 根据子群分类的结果进行原子替换，生成结构。 --&gt;
+
+</description>
+        <pubDate>Sat, 10 Dec 2022 00:00:00 +0800</pubDate>
+        <link>http://starry99.github.io/catbook/2022-12/a3</link>
+        <guid isPermaLink="true">http://starry99.github.io/catbook/2022-12/a3</guid>
+        
+        
+        <category>research</category>
+        
+      </item>
     
       <item>
         <title>Improving search efficiency of special quasirandom structures (SQS) in high-entropy alloys using supervised learning.</title>
@@ -69,7 +119,7 @@ In addition, we have to do a rounding operation on $U_{i}$ finally, because the 
         <title>A method for rapid screening of ground-state candidate structures is proposed to accelerate high-throughput density function theory (DFT) calculations.</title>
         <description>&lt;h1 id=&quot;background&quot;&gt;Background&lt;/h1&gt;
 
-&lt;p&gt;With the improvement of computing power and the development of &lt;a href=&quot;https://en.wikipedia.org/wiki/Density_functional_theory&quot;&gt;DFT&lt;/a&gt; software, there is a trend to find new materials through high-throughput calculation. A key question for high-throughput conputing is what kind of structural prototype to choose for the calculation. The usual practice is to select the existing structural prototypes in the experimental or calculation database (ICSD/Materials Project/Aflow) accroding to the material lattice type or coordination number and other information. These structural prototypes are then used as target element replacements for the calculation. In our work on symmetry-based structure classification strategies, we aim to generate new possible ground-state candidate structures that can be uesd as structural prototypes for high-throughput calculations of materials.&lt;/p&gt;
+&lt;p&gt;With the improvement of computing power and the development of &lt;a href=&quot;https://en.wikipedia.org/wiki/Density_functional_theory&quot;&gt;DFT&lt;/a&gt; software, there is a trend to find new materials through high-throughput calculation. A key question for high-throughput conputing is what kind of structural prototype to be choose for the calculation. The usual practice is to select the existing structural prototypes in the experimental or calculation database (ICSD/Materials Project/Aflow) accroding to the material lattice type or coordination number and other information. These structural prototypes are then used as target element replacements for the calculation. In our work on symmetry-based structure classification strategies, we aim to generate new possible ground-state candidate structures that can be uesd as structural prototypes for high-throughput calculations of materials.&lt;/p&gt;
 
 &lt;!-- 随着算力的进步和DFT方法的成熟，通过高通量计算去寻找新材料成为一种趋势。对于高通量计算来说一个关键的问题是选取什么样的结构原型来进行计算。通常的做法是根据材料晶格类型或者配位数等信息，选取实验或者计算数据库中已有的结构原型。最后对这些结构原型作元素替换进行计算。在我们的基于对称性的结构分类策略的工作中，我们的目的是产生新的可能的基态候选结构，可作为材料高通量计算的结构原型。 --&gt;
 
@@ -84,7 +134,7 @@ In addition, we have to do a rounding operation on $U_{i}$ finally, because the 
 
 &lt;!-- 更进一步的推论是，在原子分类模型中，当我们把相互作用的截断半径扩大到无穷，模型中的关键指标$l$就可以自然地变为Wyckoffs site 的数目（$N_{W}$）。然后我们发现，即使是不通过上述的模型和凸点计算，仅仅将结构按这一指标进行分类，也可以大大减少候选结构的数量，找到有效的原型结构。 --&gt;
 
-&lt;p&gt;Figure (a) is the result of classifying the ground state structures of 100 binary alloys in the &lt;a href=&quot;https://aflowlib.org/aflow-chull&quot;&gt;AFLOW database&lt;/a&gt; according to $N_{W}$. It can be found that under the premise of the same amount of calculation, its effect is much better than according to the other two indicators (b) (c), namely the number of structural atoms in the cell and the number of symmetrical operands of the structure.&lt;/p&gt;
+&lt;p&gt;Figure (a) is the result of classifying the ground state structures of one hundred binary alloys in the &lt;a href=&quot;https://aflowlib.org/aflow-chull&quot;&gt;AFLOW database&lt;/a&gt; according to $N_{W}$. It can be found that under the premise of the same amount of calculation, its effect is much better than according to the other two indicators (b) (c), which is usually used, namely the number of structural atoms in the cell and the number of symmetrical operands of the structure.&lt;/p&gt;
 
 &lt;!-- 图（a）是我们将AFLOW数据库中的100个二元合金的基态结构，按照$N_{W}$进行分类的结果。可以发现在相同的计算量前提下，他的效果要远好于按照另外两个指标（b)(c)，即结构原子数和结构的对称操作数。 --&gt;
 
