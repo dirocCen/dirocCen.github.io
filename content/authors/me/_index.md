@@ -1,5 +1,5 @@
 ---
-name: "岑宇杰"
+name: "Yujie Cen"
 avatar: "/images/avatar.jpg"
 bio: "在 TU Wien 读材料化学博士生"
 education:
