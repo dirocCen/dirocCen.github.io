@@ -14,15 +14,17 @@ sections:
     content:
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: me
-      text: ''
+      # Short introduction displayed below your name and avatar
+      text: "PhD candidate in Materials Chemistry at TU Wien."
       # Show a call-to-action button under your biography? (optional)
       button:
         text: Download CV
         url: uploads/resume.pdf
+      # Section headings for the biography block
       headings:
-        about: ''
-        education: ''
-        interests: ''
+        about: "About"
+        education: "Education"
+        interests: "Interests"
     design:
       # Use the new Gradient Mesh which automatically adapts to the selected theme colors
       background:
