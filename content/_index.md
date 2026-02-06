@@ -44,11 +44,14 @@ sections:
       title: '📚 My Research'
       subtitle: ''
       text: |-
-        Use this area to speak to your mission. I'm a research scientist in the Moonshot team at DeepMind. I blog about machine learning, deep learning, and moonshots.
+        My research focuses on the intersection of materials science and computational physics. I specialize in using first-principles calculations to investigate the fundamental properties of materials.
 
-        I apply a range of qualitative and quantitative methods to comprehensively investigate the role of science and technology in the economy.
-
-        Please reach out to collaborate 😃
+        My key areas of interest include:
+        - **Heat Transport:** Understanding and predicting thermal properties in complex and quasi-1D systems.
+        - **Phonon Dynamics:** Studying lattice vibrations and their behavior in nanomaterials, particularly through symmetry-adapted approaches as part of the PULGON project.
+        - **Machine Learning:** Applying machine learning techniques to accelerate and enhance materials discovery and property prediction.
+        
+        I am always open to new collaborations and discussions. Please feel free to reach out.
     design:
       columns: '1'
   - block: collection
