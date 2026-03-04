@@ -19,14 +19,17 @@ hugoblox:
     # Schema.org type for structured data
     type: person                        # person | organization | local_business
     # Short tagline displayed on your site
-    tagline: "在 TU Wien 读材料化学博士生"
+    tagline: "PhD Candidate in Materials Chemistry · TU Wien"
     # Site meta description for search engines and social sharing
-    description: "在 TU Wien 读材料化学博士生"
+    description: "Personal academic website of Yujie Cen, PhD Candidate at TU Wien specializing in computational thermal transport and first-principles materials research."
     # Social accounts (used for meta tags like Twitter Cards and other contact links)
     social:
       twitter: ""                       # Twitter/X handle for Twitter Cards (without @)
       github: "dirocCen"
       email: "cenyjie@gmail.com"
+      orcid: "0000-0002-2111-0191"
+      google_scholar: "https://scholar.google.com/citations?user=IuwWrz0AAAAJ&hl=en"
+      linkedin: "https://www.linkedin.com/in/yj-cen-2707292b4/"
 
   # ────────────────────────────────────────────────────────────────────────────
   # THEME

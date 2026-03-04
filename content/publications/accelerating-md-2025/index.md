@@ -8,5 +8,11 @@ authors:
 date: "2025-01-01T00:00:00Z"
 publication_types: ["2"]
 publication: "Journal of Chemical Theory and Computation"
-url_source: ""
+publication_short: "J. Chem. Theory Comput."
+featured: true
+tags:
+  - Thermal Transport
+  - Molecular Dynamics
+  - DFT
+  - Computational Methods
 ---

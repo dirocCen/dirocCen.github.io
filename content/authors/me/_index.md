@@ -1,7 +1,8 @@
 ---
 name: "Yujie Cen"
 avatar: "/images/avatar.jpg"
-bio: "My research interests include using first-principles calculations to study the electronic structure and optical properties of materials."
+bio: "PhD Candidate in Materials Chemistry at TU Wien, specializing in computational thermal transport and first-principles methods for materials research."
+
 education:
   - degree: "BS in Physics"
     institution: "South China University of Technology"
@@ -15,4 +16,73 @@ education:
     institution: "TU Wien"
     startDate: "2023-07-12"
     endDate: ""
+
+work:
+  - position: "PhD Researcher"
+    company_name: "TU Wien – Institute of Materials Chemistry"
+    company_url: "https://www.tuwien.at"
+    date_start: "2023-07-12"
+    date_end: ""
+    summary: |
+      - Developing first-principles and machine-learning methods for thermal transport in nanomaterials
+      - Investigating heat conduction in quasi-1D systems using Green-Kubo and Boltzmann Transport Equation approaches
+      - Contributing to the PULGON project on phonons in nanomaterials via line group symmetry
+      - Published in *npj Computational Materials* and *Journal of Chemical Theory and Computation*
+  - position: "Graduate Researcher"
+    company_name: "South China University of Technology"
+    company_url: "https://www.scut.edu.cn"
+    date_start: "2020-09-01"
+    date_end: "2023-07-01"
+    summary: |
+      - First-principles study of electronic structure and topological properties of magnetic materials
+      - Developed symmetry-based classification methods for alloy ground-state determination
+      - Investigated magnetic phase transitions in perovskite membranes via DFT+U
+
+skills:
+  - name: "Computational Methods"
+    items:
+      - name: "DFT / DFPT"
+        description: "Electronic structure and lattice dynamics via density functional theory"
+        percent: 95
+      - name: "Molecular Dynamics"
+        description: "Ab initio and classical MD for thermal property simulation"
+        percent: 90
+      - name: "Green-Kubo / BTE"
+        description: "Heat transport formalism for thermal conductivity calculation"
+        percent: 85
+      - name: "ML Interatomic Potentials"
+        description: "Machine-learning force fields for accelerated materials simulation"
+        percent: 80
+  - name: "Software & Programming"
+    items:
+      - name: "Python"
+        description: "Data analysis, automation, and scientific computing"
+        percent: 90
+      - name: "VASP"
+        description: "Vienna Ab initio Simulation Package"
+        percent: 90
+      - name: "Phonopy / LAMMPS"
+        description: "Phonon calculations and classical MD simulations"
+        percent: 80
+      - name: "Fortran / Bash"
+        description: "Scientific computing and HPC scripting"
+        percent: 65
+
+languages:
+  - name: "Chinese"
+    percent: 100
+  - name: "English"
+    percent: 85
+
+social:
+  - icon: envelope
+    link: "mailto:cenyjie@gmail.com"
+  - icon: orcid
+    link: "https://orcid.org/0000-0002-2111-0191"
+  - icon: google-scholar
+    link: "https://scholar.google.com/citations?user=IuwWrz0AAAAJ&hl=en"
+  - icon: linkedin
+    link: "https://www.linkedin.com/in/yj-cen-2707292b4/"
+  - icon: github
+    link: "https://github.com/dirocCen"
 ---

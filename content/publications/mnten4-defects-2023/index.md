@@ -8,7 +8,7 @@ authors:
 - XB Yang
 - YJ Zhao
 date: "2023-08-01T00:00:00Z"
-doi: ""
+doi: "10.3390/ma16155496"
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2023-08-01T00:00:00Z"
