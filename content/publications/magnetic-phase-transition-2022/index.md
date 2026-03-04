@@ -11,7 +11,14 @@ authors:
 - JH Liao
 - et al.
 date: "2022-01-01T00:00:00Z"
+doi: "10.1016/j.physleta.2022.128010"
 publication_types: ["2"]
 publication: "Physics Letters A, 432, 128010"
-url_source: ""
+publication_short: "Phys. Lett. A"
+url_source: "https://www.sciencedirect.com/science/article/pii/S0375960122003668"
+tags:
+  - Magnetic Materials
+  - DFT
+  - Perovskite
+  - Phase Transition
 ---

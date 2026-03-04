@@ -9,4 +9,8 @@ date: "2024-04-24T00:00:00Z"
 publication_types: ["3"]
 publication: "arXiv e-prints, arXiv:2404.13897"
 url_source: "https://arxiv.org/abs/2404.13897"
+tags:
+  - Statistical Mechanics
+  - Ice
+  - Transfer Matrix
 ---
