@@ -43,30 +43,30 @@ skills:
     items:
       - name: "DFT / DFPT"
         description: "Electronic structure and lattice dynamics via density functional theory"
-        percent: 95
+        level: 5
       - name: "Molecular Dynamics"
         description: "Ab initio and classical MD for thermal property simulation"
-        percent: 90
+        level: 4
       - name: "Green-Kubo / BTE"
         description: "Heat transport formalism for thermal conductivity calculation"
-        percent: 85
+        level: 4
       - name: "ML Interatomic Potentials"
         description: "Machine-learning force fields for accelerated materials simulation"
-        percent: 80
+        level: 4
   - name: "Software & Programming"
     items:
       - name: "Python"
         description: "Data analysis, automation, and scientific computing"
-        percent: 90
+        level: 5
       - name: "VASP"
         description: "Vienna Ab initio Simulation Package"
-        percent: 90
+        level: 5
       - name: "Phonopy / LAMMPS"
         description: "Phonon calculations and classical MD simulations"
-        percent: 80
+        level: 4
       - name: "Fortran / Bash"
         description: "Scientific computing and HPC scripting"
-        percent: 65
+        level: 3
 
 languages:
   - name: "Chinese"
@@ -74,15 +74,20 @@ languages:
   - name: "English"
     percent: 85
 
-social:
-  - icon: envelope
-    link: "mailto:cenyjie@gmail.com"
-  - icon: orcid
-    link: "https://orcid.org/0000-0002-2111-0191"
-  - icon: google-scholar
-    link: "https://scholar.google.com/citations?user=IuwWrz0AAAAJ&hl=en"
-  - icon: linkedin
-    link: "https://www.linkedin.com/in/yj-cen-2707292b4/"
-  - icon: github
-    link: "https://github.com/dirocCen"
+links:
+  - url: "mailto:cenyjie@gmail.com"
+    icon: "hero/envelope"
+    label: "Email"
+  - url: "https://orcid.org/0000-0002-2111-0191"
+    icon: "ai/orcid"
+    label: "ORCID"
+  - url: "https://scholar.google.com/citations?user=IuwWrz0AAAAJ&hl=en"
+    icon: "ai/google-scholar"
+    label: "Google Scholar"
+  - url: "https://www.linkedin.com/in/yj-cen-2707292b4/"
+    icon: "brands/linkedin"
+    label: "LinkedIn"
+  - url: "https://github.com/dirocCen"
+    icon: "brands/github"
+    label: "GitHub"
 ---

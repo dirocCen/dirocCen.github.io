@@ -15,7 +15,7 @@ sections:
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: me
       # Short introduction displayed below your name and avatar
-      text: "My research interests include using first-principles calculations to study the electronic structure and optical properties of materials."
+      text: "PhD Candidate in Materials Chemistry at TU Wien. My research focuses on computational thermal transport — using first-principles methods, molecular dynamics, and machine-learning interatomic potentials to understand heat conduction in nanomaterials. I am part of the [PULGON project](https://pulgon-project.org/), studying phonons in quasi-1D systems via line group symmetry."
       # Show a call-to-action button under your biography? (optional)
       button:
         text: Download CV
