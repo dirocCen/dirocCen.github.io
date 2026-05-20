@@ -82,12 +82,12 @@ links:
     icon: "hero/envelope"
     label: Email
   - url: "https://orcid.org/0000-0002-2111-0191"
-    icon: "ai/orcid"
+    icon: "brands/orcid"
     label: ORCID
   - url: "https://scholar.google.com/citations?user=IuwWrz0AAAAJ&hl=en"
-    icon: "ai/google-scholar"
+    icon: "brands/google-scholar"
     label: Google Scholar
-  - url: "https://www.linkedin.com/in/yj-cen-2707292b4/"
+  - url: "https://www.linkedin.com/in/yujie-cen/"
     icon: "brands/linkedin"
     label: LinkedIn
   - url: "https://github.com/dirocCen"
