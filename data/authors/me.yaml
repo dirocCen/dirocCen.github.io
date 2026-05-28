@@ -30,16 +30,15 @@ work:
       - Developing first-principles and machine-learning methods for thermal transport in nanomaterials
       - Investigating heat conduction in quasi-1D systems using Green-Kubo and Boltzmann Transport Equation approaches
       - Contributing to the PULGON project on phonons in nanomaterials via line group symmetry
-      - Published in *npj Computational Materials* and *Journal of Chemical Theory and Computation*
   - position: Graduate Researcher
     company_name: South China University of Technology
     company_url: "https://www.scut.edu.cn"
     start: '2020-09-01'
     end: '2023-07-01'
     summary: |
-      - First-principles study of electronic structure and topological properties of magnetic materials
-      - Developed symmetry-based classification methods for alloy ground-state determination
-      - Investigated magnetic phase transitions in perovskite membranes via DFT+U
+      - Developed a symmetry-based classification scheme to determine ground-state configurations of binary and ternary alloys
+      - Combined symmetry enumeration with DFT calculations using VASP to reduce the cost of alloy ground-state searches
+      - Applied the method to multi-component alloy systems, enabling efficient screening beyond exhaustive configuration sampling
 
 skills:
   - name: Computational Methods
