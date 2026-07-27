@@ -10,6 +10,10 @@ tags:
 - Symmetry
 - Nanomaterials
 date: "2026-07-14"
+image:
+  filename: "fig-gkma-channel-pairs.png"
+  focal_point: "Center"
+  preview_only: true
 links:
   - type: pdf
     url: "symmetry-adapted-gkma.pdf"
@@ -21,6 +25,10 @@ links:
 Green-Kubo modal analysis (GKMA) and homogeneous nonequilibrium modal analysis (HNEMA) conventionally decompose heat transport using eigenvectors of the harmonic dynamical matrix. Within degenerate subspaces, however, those eigenvectors are only defined up to an arbitrary unitary rotation. Individual per-mode thermal conductivities can therefore depend on numerical details even though the total conductivity remains unchanged.
 
 This work resolves that ambiguity for quasi-one-dimensional systems by constructing the modal basis from line-group projection operators. Every modal coordinate carries well-defined symmetry labels \((k, m, \Pi_V)\), making the decomposition unique at the level of irreducible representations.
+
+![Comparison of normal and symmetry-adapted HNEMA modal conductivities](fig-basis-comparison.png)
+
+*Normal and symmetry-adapted bases preserve the frequency-binned and degenerate-subspace sums, but redistribute the individual degenerate-mode contributions into a well-defined symmetry basis (Fig. 2 of the paper).*
 
 ## Method
 
@@ -38,6 +46,24 @@ The framework was tested on a pristine \((10,0)\)-\((20,0)\) WS2-MoS2 double-wal
 - Heat transport is dominated by doubly degenerate E-type symmetry channels, with the largest contributions concentrated at low angular momentum \(m\) and near \(k=0\).
 - The leading eigenvalue of the symmetry-resolved GKMA channel-pair matrix carries 99.1% of its Frobenius spectral weight. The large off-diagonal terms therefore form a collective, nearly rank-one transport pattern rather than many independent pair contributions.
 - An independent NVE control reproduces the same E-type-dominated collective direction, showing that the structure is robust to removal of the production thermostat.
+
+### Symmetry-Resolved HNEMA
+
+![HNEMA thermal conductivity resolved by axial wave vector and symmetry channel](fig-hnema-irrep-map.png)
+
+*The \((k,m,\Pi_V)\)-resolved HNEMA map concentrates the largest conductivity contributions near \(k=0\) and in the low-\(m\), doubly degenerate E-type channels (Fig. 5).*
+
+### GKMA Cross-Channel Correlations
+
+![GKMA thermal-conductivity matrix between line-group symmetry channels](fig-gkma-channel-pairs.png)
+
+*The symmetry-channel GKMA matrix exposes strong off-diagonal correlations between E-type channels, especially those involving \(m=1\) (Fig. 6).*
+
+### Collective Eigenchannel
+
+![Collective eigenchannels of the symmetry-resolved GKMA matrix](fig-collective-eigenchannels.png)
+
+*One eigenchannel contributes 98.6% of the total conductivity and carries 99.1% of the matrix's Frobenius spectral weight. Its E-type-dominated direction is reproduced by the independent NVE control (Fig. 8).*
 
 ## Significance
 
