@@ -1,6 +1,6 @@
 ---
 title: "PULGON Project"
-summary: "An FWF-funded initiative developing symmetry-adapted methods for phonons in quasi-1D nanomaterials (nanotubes, nanowires) using line group theory. The project enables accurate prediction of vibrational, thermal, and transport properties of carbon nanotubes and related systems."
+summary: "Lead developer of pulgon_tools (Computer Physics Communications, 2026), the first open-source package that detects the line group of arbitrary quasi-1D structures (all 13 families) and builds their irreducible representations. Part of an FWF-funded project on symmetry-adapted phonon methods for nanotubes and nanowires."
 tags:
 - PhD
 - Materials Science

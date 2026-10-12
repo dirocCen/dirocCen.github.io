@@ -6,8 +6,8 @@ name:
   given: Yujie
   family: Cen
 bio: |
-  PhD Candidate in Materials Chemistry at TU Wien, specializing in computational thermal transport and first-principles methods for materials research.
-role: PhD Candidate in Materials Chemistry
+  Computational materials scientist (PhD, TU Wien, defense October 2026) building machine-learning interatomic potentials and symmetry-based methods for phonons and thermal transport. Open to postdoctoral positions from December 2026.
+role: Computational Materials Scientist
 education:
   - degree: PhD in Materials Chemistry
     institution: TU Wien
@@ -27,9 +27,10 @@ work:
     company_url: "https://www.tuwien.at"
     start: '2023-07-12'
     summary: |
-      - Developing first-principles and machine-learning methods for thermal transport in nanomaterials
-      - Investigating heat conduction in quasi-1D systems using Green-Kubo and Boltzmann Transport Equation approaches
-      - Contributing to the PULGON project on phonons in nanomaterials via line group symmetry
+      - Developing machine-learning interatomic potentials (NEP, Allegro, MACE) with active learning, validated on phonons and heat transport rather than energy and force errors alone
+      - Symmetry-based methods for quasi-1D materials: line groups, irreducible representations and symmetry-resolved modal analysis of heat transport
+      - Thermal transport from DFT (VASP), GPU-accelerated MD (GPUMD), Green–Kubo and atomistic Green's functions
+      - Lead developer of [pulgon_tools](https://github.com/pulgon-project/pulgon_tools), an open-source package for line-group symmetry analysis
   - position: Graduate Researcher
     company_name: South China University of Technology
     company_url: "https://www.scut.edu.cn"
@@ -53,8 +54,8 @@ skills:
         description: "Heat transport formalism for thermal conductivity calculation"
         level: 4
       - name: ML Interatomic Potentials
-        description: "Machine-learning force fields for accelerated materials simulation"
-        level: 4
+        description: "NEP, Allegro, MACE, NequIP; active learning and fine-tuning of pretrained potentials"
+        level: 5
   - name: "Software & Programming"
     items:
       - name: Python
@@ -63,8 +64,11 @@ skills:
       - name: VASP
         description: "Vienna Ab initio Simulation Package"
         level: 5
-      - name: "Phonopy / LAMMPS"
-        description: "Phonon calculations and classical MD simulations"
+      - name: "PyTorch"
+        description: "Training and evaluating equivariant neural-network potentials"
+        level: 4
+      - name: "GPUMD / LAMMPS / Phonopy"
+        description: "GPU-accelerated MD, classical MD and phonon calculations"
         level: 4
       - name: "Fortran / Bash"
         description: "Scientific computing and HPC scripting"

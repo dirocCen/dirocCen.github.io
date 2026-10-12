@@ -1,7 +1,7 @@
 ---
 name: "Yujie Cen"
 avatar: "/images/avatar.jpg"
-bio: "PhD Candidate in Materials Chemistry at TU Wien, specializing in computational thermal transport and first-principles methods for materials research."
+bio: "Computational materials scientist (PhD, TU Wien, defense October 2026) building machine-learning interatomic potentials and symmetry-based methods for phonons and thermal transport. Open to postdoctoral positions from December 2026."
 
 education:
   - degree: "BS in Physics"

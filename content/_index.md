@@ -15,7 +15,7 @@ sections:
       # Choose a user profile to display (a folder name within `content/authors/`)
       username: me
       # Short introduction displayed below your name and avatar
-      text: "PhD Candidate in Materials Chemistry at TU Wien. My research focuses on computational thermal transport — using first-principles methods, molecular dynamics, and machine-learning interatomic potentials to understand heat conduction in nanomaterials. I am part of the [PULGON project](https://pulgon-project.org/), studying phonons in quasi-1D systems via line group symmetry."
+      text: "I build machine-learning interatomic potentials and validate them against the physics that matters — phonons, finite-temperature dynamics and heat transport — not only energy and force errors. I am finishing my PhD in Materials Chemistry at TU Wien with Georg Madsen and Jesús Carrete (defense October 2026), as part of the [PULGON project](https://pulgon-project.org/). **I am looking for postdoctoral positions in machine learning for materials, starting December 2026.**"
       # Show a call-to-action button under your biography? (optional)
       button:
         text: Download CV
@@ -44,14 +44,15 @@ sections:
       title: '📚 My Research'
       subtitle: ''
       text: |-
-        My research focuses on the intersection of materials science and computational physics. I specialize in using first-principles calculations to investigate the fundamental properties of materials.
+        I work where machine learning meets the physics of atomic vibrations.
 
-        My key areas of interest include:
-        - **Heat Transport:** Understanding and predicting thermal properties in complex and quasi-1D systems.
-        - **Phonon Dynamics:** Studying lattice vibrations and their behavior in nanomaterials, particularly through symmetry-adapted approaches as part of the PULGON project.
-        - **Machine Learning:** Applying machine learning techniques to accelerate and enhance materials discovery and property prediction.
-        
-        I am always open to new collaborations and discussions. Please feel free to reach out.
+        - **Machine-learning interatomic potentials:** VASP reference data, active learning, fine-tuning of pretrained potentials (NEP) and equivariant models (Allegro, MACE, NequIP), with production MD in GPUMD and LAMMPS.
+        - **Physics-based validation:** mode-resolved phonon and thermal-transport analysis (Green–Kubo, modal decomposition, atomistic Green's functions) to test whether a model gets the physics right.
+        - **Symmetry for atomistic modelling:** line groups, irreducible representations and symmetry-adapted bases for quasi-1D materials such as nanotubes. I lead the development of [pulgon_tools](https://github.com/pulgon-project/pulgon_tools).
+
+        I am currently exploring how universal (foundation) MLIPs perform on phonons and thermal transport, and how symmetry can diagnose where they fail.
+
+        Happy to talk about MLIPs, phonons or collaboration — feel free to [email me](mailto:cenyjie@gmail.com).
     design:
       columns: '1'
   - block: collection
