@@ -42,7 +42,7 @@ The framework was tested on a pristine \((10,0)\)-\((20,0)\) WS2-MoS2 double-wal
 ## Key Results
 
 - The normal, symmetrized, and projector bases give the same total thermal conductivity, while the symmetry-adapted bases remove arbitrary mixing between degenerate modes.
-- At 300 K, HNEMA gives \(44.6 \pm 15.5\) W m\(^{-1}\) K\(^{-1}\), while GKMA gives \(45.3 \pm 11.7\) W m\(^{-1}\) K\(^{-1}\), consistent within their seed-to-seed uncertainties.
+- At 300 K, HNEMA gives \(33.5 \pm 3.6\) W m\(^{-1}\) K\(^{-1}\), while GKMA gives \(33.2 \pm 2.5\) W m\(^{-1}\) K\(^{-1}\), consistent within their seed-to-seed uncertainties.
 - Heat transport is dominated by doubly degenerate E-type symmetry channels, with the largest contributions concentrated at low angular momentum \(m\) and near \(k=0\).
 - The leading eigenvalue of the symmetry-resolved GKMA channel-pair matrix carries 99.1% of its Frobenius spectral weight. The large off-diagonal terms therefore form a collective, nearly rank-one transport pattern rather than many independent pair contributions.
 - An independent NVE control reproduces the same E-type-dominated collective direction, showing that the structure is robust to removal of the production thermostat.
